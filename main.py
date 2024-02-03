@@ -4,12 +4,14 @@ import datetime
 import psutil
 from flask import Flask
 from threading import Thread
+import os
+from dotenv import load_dotenv
 
 app = Flask('')
 
 @app.route('/')
 def main():
-  return "Your bot is alive!"
+    return "Your bot is alive!"
 
 def run():
     app.run(host="0.0.0.0", port=8080)
@@ -17,6 +19,9 @@ def run():
 def keep_alive():
     server = Thread(target=run)
     server.start()
+
+# .env dosyasındaki ortam değişkenlerini yükleyin
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -51,4 +56,7 @@ async def uptime(ctx):
 
     await ctx.send(uptime_message)
 
-bot.run('MTIwMzQ1Nzc5NDE1NDY5NjcwNA.GzvVuA.v74F6zGg2sQeizkvVFshOp7bgTTHDP18EXZgN4')
+# Ortam değişkeninden TOKEN'ı alın
+token = os.getenv("TOKEN")
+
+bot.run(token)
