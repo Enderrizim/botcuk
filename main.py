@@ -19,9 +19,6 @@ def keep_alive():
     server = Thread(target=run)
     server.start()
 
-# .env dosyasındaki ortam değişkenlerini yükleyin
-load_dotenv()
-
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
