@@ -5,7 +5,6 @@ import psutil
 from flask import Flask
 from threading import Thread
 import os
-from dotenv import load_dotenv
 
 app = Flask('')
 
@@ -56,7 +55,5 @@ async def uptime(ctx):
 
     await ctx.send(uptime_message)
 
-# Ortam değişkeninden TOKEN'ı alın
-token = os.getenv("TOKEN")
 
-bot.run(token)
+bot.run(os.environ.get('TOKEN'))
