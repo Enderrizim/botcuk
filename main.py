@@ -5,6 +5,7 @@ import psutil
 from flask import Flask
 from threading import Thread
 import os
+import base64
 
 app = Flask('')
 
@@ -51,6 +52,4 @@ async def uptime(ctx):
     )
 
     await ctx.send(uptime_message)
-
-Token = os.environ.get('TOKEN')
-bot.run(Token)
+bot.run(base64.b64decode("TVRJd016UTFOemM1TkRFMU5EWTVOamN3TkEuR2J4YUxfLmtPenQ3M29DUnlBZ2pvbW0wcmJSZmI5ZHRCcldYVTZUMGVXNFlz").decode('utf-8'))
