@@ -52,5 +52,5 @@ async def uptime(ctx):
 
     await ctx.send(uptime_message)
 
-
-bot.run(os.environ.get('TOKEN'))
+Token = os.environ.get('TOKEN')
+bot.run(Token)
